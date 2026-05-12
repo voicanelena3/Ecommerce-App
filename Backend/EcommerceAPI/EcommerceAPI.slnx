@@ -1,0 +1,14 @@
+<Solution>
+  <Project Path="BusinessLogic/BusinessLogic.csproj">
+    <BuildDependency Project="Repository/Repository.csproj" />
+  </Project>
+  <Project Path="EcommerceAPI/EcommerceAPI.csproj">
+    <BuildDependency Project="BusinessLogic/BusinessLogic.csproj" />
+    <BuildDependency Project="Repository/Repository.csproj" />
+  </Project>
+  <Project Path="EcommerceAPI.Tests/EcommerceAPI.Tests.csproj">
+    <BuildDependency Project="BusinessLogic/BusinessLogic.csproj" />
+    <BuildDependency Project="Repository/Repository.csproj" />
+  </Project>
+  <Project Path="Repository/Repository.csproj" />
+</Solution>
