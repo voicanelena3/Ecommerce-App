@@ -1,0 +1,73 @@
+# ASP.NET Core
+bin/
+obj/
+.vs/
+.vscode/
+*.user
+*.suo
+*.sln.docstates
+.vs/
+launchSettings.json
+appsettings.Development.json
+appsettings.*.json
+
+# Entity Framework
+*.mdf
+*.ldf
+*.ndf
+
+# NuGet
+*.nupkg
+*.snupkg
+.nuget/
+packages/
+.nuget/packages/
+
+# Node / Angular
+node_modules/
+npm-debug.log
+npm-debug.log*
+yarn-error.log*
+dist/
+.angular/
+angular.json (optional - usually committed)
+
+# Angular / TypeScript
+.ng/
+.ngc
+.ngtypecheck.*
+
+# IDE / Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Environment & Configuration
+.env
+.env.local
+appsettings.Development.json
+
+# Build output
+wwwroot/
+wwwroot/dist/
+ClientApp/dist/
+
+# Logs
+logs/
+*.log
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Testing
+coverage/
+.nyc_output/
+
+# Misc
+.vs/
+.vscode/
+*.code-workspace
