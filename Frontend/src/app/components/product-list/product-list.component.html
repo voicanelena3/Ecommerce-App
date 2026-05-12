@@ -1,0 +1,52 @@
+<div class="container mt-5">
+  <h1 class="mb-4">Products</h1>
+
+  <div *ngIf="loading" class="alert alert-info">
+    Loading products...
+  </div>
+
+  <div *ngIf="error" class="alert alert-danger">
+    {{ error }}
+    <button class="btn btn-sm btn-outline-danger ms-2" (click)="loadProducts()">
+      Retry
+    </button>
+  </div>
+
+  <div class="row" *ngIf="!loading && products.length > 0">
+    <div class="col-md-4 mb-4" *ngFor="let product of products">
+      <div class="card h-100 shadow-sm">
+        <div class="card-img-top bg-light d-flex align-items-center justify-content-center"
+             style="height: 200px; background-color: #f5f5f5;">
+          <span class="text-muted">{{ product.name }}</span>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">{{ product.name }}</h5>
+          <p class="card-text text-muted">{{ product.description }}</p>
+          <p class="card-text">
+            <strong>${{ product.price.toFixed(2) }}</strong>
+          </p>
+          <p class="card-text text-sm">
+            <span *ngIf="product.stock > 0" class="badge bg-success">
+              In Stock ({{ product.stock }})
+            </span>
+            <span *ngIf="product.stock === 0" class="badge bg-danger">
+              Out of Stock
+            </span>
+          </p>
+        </div>
+        <div class="card-footer bg-white">
+          <button
+            class="btn btn-primary w-100"
+            (click)="addToCart(product)"
+            [disabled]="product.stock === 0">
+            Add to Cart
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="!loading && products.length === 0" class="alert alert-info">
+    No products available.
+  </div>
+</div>

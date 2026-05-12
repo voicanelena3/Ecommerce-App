@@ -1,0 +1,76 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="/products">
+      <strong>{{ title }}</strong>
+    </a>
+
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/products" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+            Products
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link position-relative" routerLink="/cart">
+            Cart
+            <span *ngIf="(cart$ | async) as cart" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+              <span *ngIf="cart.totalItems > 0">{{ cart.totalItems }}</span>
+            </span>
+          </a>
+        </li>
+
+        <li class="nav-item" *ngIf="!(currentUser$ | async)">
+          <a class="nav-link" routerLink="/login" routerLinkActive="active">
+            Sign In
+          </a>
+        </li>
+
+        <li class="nav-item" *ngIf="!(currentUser$ | async)">
+          <a class="nav-link" routerLink="/register" routerLinkActive="active">
+            Register
+          </a>
+        </li>
+
+        <li class="nav-item dropdown" *ngIf="currentUser$ | async as user">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            {{ user.firstName }} {{ user.lastName }}
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end">
+            <li><span class="dropdown-item-text small">{{ user.email }}</span></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#" (click)="logout()">Logout</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<router-outlet></router-outlet>
+
+<footer class="bg-light py-4 mt-5 border-top">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <h6 class="fw-bold">{{ title }}</h6>
+        <p class="small text-muted">Your one-stop shop for everything you need.</p>
+      </div>
+      <div class="col-md-6 text-md-end">
+        <p class="small text-muted mb-0">&copy; 2026 {{ title }}. All rights reserved.</p>
+      </div>
+    </div>
+  </div>
+</footer>

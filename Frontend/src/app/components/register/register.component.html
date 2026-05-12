@@ -1,0 +1,106 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card shadow">
+        <div class="card-body">
+          <h2 class="card-title text-center mb-4">Create Account</h2>
+
+          <div *ngIf="error" class="alert alert-danger alert-dismissible fade show" role="alert">
+            {{ error }}
+            <button type="button" class="btn-close" (click)="error = null"></button>
+          </div>
+
+          <div *ngIf="success" class="alert alert-success">
+            Account created successfully!
+          </div>
+
+          <form *ngIf="!success">
+            <div class="mb-3">
+              <label for="firstName" class="form-label">First Name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="firstName"
+                placeholder="Enter your first name"
+                [(ngModel)]="firstName"
+                name="firstName"
+                required
+              />
+            </div>
+
+            <div class="mb-3">
+              <label for="lastName" class="form-label">Last Name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="lastName"
+                placeholder="Enter your last name"
+                [(ngModel)]="lastName"
+                name="lastName"
+                required
+              />
+            </div>
+
+            <div class="mb-3">
+              <label for="email" class="form-label">Email Address</label>
+              <input
+                type="email"
+                class="form-control"
+                id="email"
+                placeholder="Enter your email"
+                [(ngModel)]="email"
+                name="email"
+                required
+              />
+            </div>
+
+            <div class="mb-3">
+              <label for="password" class="form-label">Password</label>
+              <input
+                type="password"
+                class="form-control"
+                id="password"
+                placeholder="Enter your password"
+                [(ngModel)]="password"
+                name="password"
+                required
+              />
+            </div>
+
+            <div class="mb-3">
+              <label for="confirmPassword" class="form-label">Confirm Password</label>
+              <input
+                type="password"
+                class="form-control"
+                id="confirmPassword"
+                placeholder="Confirm your password"
+                [(ngModel)]="confirmPassword"
+                name="confirmPassword"
+                required
+              />
+            </div>
+
+            <button
+              type="button"
+              class="btn btn-primary w-100 mb-3"
+              (click)="register()"
+              [disabled]="loading">
+              <span *ngIf="!loading">Create Account</span>
+              <span *ngIf="loading">
+                <span class="spinner-border spinner-border-sm me-2"></span>
+                Creating...
+              </span>
+            </button>
+          </form>
+
+          <div class="text-center">
+            <p class="mb-0">
+              Already have an account?
+              <a routerLink="/login" class="text-decoration-none">Sign In</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
