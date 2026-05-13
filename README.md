@@ -25,6 +25,7 @@ cd ecommerce-vertical-slice
 ### 2. Database Setup
 
 #### Option A: Using Database Backup File
+The file for the database is in the backend/Ecommerce API folder
 
 1. Open **SQL Server Management Studio**
 2. Right-click on **Databases** → **Restore Database**
