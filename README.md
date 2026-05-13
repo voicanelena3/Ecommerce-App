@@ -1,4 +1,3 @@
-# Ecommerce-App
  # E-Commerce Vertical Slice - Full Stack Application
 
 A complete e-commerce platform with user authentication, product catalog, shopping cart, and checkout functionality built with Angular 17 frontend and .NET 6+ C# backend.
